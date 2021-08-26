@@ -2,11 +2,12 @@ package pl.sda.generics;
 
 import java.util.Objects;
 
-public class OneDriveUser implements User{
+public class DropBoxUser implements User {
+
 
     private String nick;
 
-    public OneDriveUser(String nick) {
+    public DropBoxUser(String nick) {
         this.nick = nick;
     }
 
@@ -21,19 +22,19 @@ public class OneDriveUser implements User{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OneDriveUser that = (OneDriveUser) o;
-        return Objects.equals(nick, that.nick);
+        if (!(o instanceof DropBoxUser)) return false;
+        DropBoxUser that = (DropBoxUser) o;
+        return Objects.equals(getNick(), that.getNick());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nick);
+        return Objects.hash(getNick());
     }
 
     @Override
     public String toString() {
-        return "OneDriveUser{" +
+        return "DropBoxUser{" +
                 "nick='" + nick + '\'' +
                 '}';
     }
